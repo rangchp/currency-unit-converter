@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A clean, fast currency and unit converter built with vanilla JavaScript." />
+  <title>Converter — Currency &amp; Units</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Geist:wght@400;500;600&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="header">
+      <h1 class="title">
+        <span class="title-main">Converter</span>
+        <span class="title-sub"><em>currency &amp; units</em></span>
+      </h1>
+      <p class="tagline">Real-time exchange rates. Precise unit math.</p>
+    </header>
+
+    <nav class="tabs" role="tablist" aria-label="Converter mode">
+      <button class="tab active" data-tab="currency" role="tab" aria-selected="true">Currency</button>
+      <button class="tab" data-tab="units" role="tab" aria-selected="false">Units</button>
+    </nav>
+
+    <!-- ======================= Currency Panel ======================= -->
+    <section class="panel active" id="currency-panel" role="tabpanel" aria-label="Currency converter">
+      <div class="converter-card">
+        <div class="row">
+          <label class="field">
+            <span class="label">Amount</span>
+            <input
+              type="number"
+              id="currency-amount"
+              value="100"
+              step="any"
+              inputmode="decimal"
+              autocomplete="off"
+            />
+          </label>
+          <label class="field">
+            <span class="label">From</span>
+            <select id="currency-from" aria-label="From currency"></select>
+          </label>
+        </div>
+
+        <button class="swap-btn" id="currency-swap" type="button" aria-label="Swap currencies">
+          ⇅
+        </button>
+
+        <div class="row">
+          <div class="field result-field">
+            <span class="label">Result</span>
+            <output class="result" id="currency-result" aria-live="polite">—</output>
+          </div>
+          <label class="field">
+            <span class="label">To</span>
+            <select id="currency-to" aria-label="To currency"></select>
+          </label>
+        </div>
+
+        <p class="status" id="currency-status">Loading rates…</p>
+      </div>
+    </section>
+
+    <!-- ======================= Units Panel ======================= -->
+    <section class="panel" id="units-panel" role="tabpanel" aria-label="Unit converter" hidden>
+      <div class="converter-card">
+        <div class="category-tabs" id="category-tabs" role="tablist" aria-label="Unit category">
+          <button class="cat-tab active" data-cat="length" type="button">Length</button>
+          <button class="cat-tab" data-cat="mass" type="button">Mass</button>
+          <button class="cat-tab" data-cat="temperature" type="button">Temperature</button>
+          <button class="cat-tab" data-cat="volume" type="button">Volume</button>
+        </div>
+
+        <div class="row">
+          <label class="field">
+            <span class="label">Amount</span>
+            <input
+              type="number"
+              id="unit-amount"
+              value="1"
+              step="any"
+              inputmode="decimal"
+              autocomplete="off"
+            />
+          </label>
+          <label class="field">
+            <span class="label">From</span>
+            <select id="unit-from" aria-label="From unit"></select>
+          </label>
+        </div>
+
+        <button class="swap-btn" id="unit-swap" type="button" aria-label="Swap units">
+          ⇅
+        </button>
+
+        <div class="row">
+          <div class="field result-field">
+            <span class="label">Result</span>
+            <output class="result" id="unit-result" aria-live="polite">—</output>
+          </div>
+          <label class="field">
+            <span class="label">To</span>
+            <select id="unit-to" aria-label="To unit"></select>
+          </label>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p>
+        Built with vanilla JS · Rates by
+        <a href="https://www.exchangerate-api.com" target="_blank" rel="noopener">open.er-api.com</a>
+      </p>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
